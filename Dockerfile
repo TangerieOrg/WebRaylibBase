@@ -24,6 +24,4 @@ RUN mkdir build
 RUN cd /emsdk && . /emsdk/emsdk_env.sh && cd /raylib && emcmake cmake -S . -B build "-DPLATFORM=Web"
 RUN cd /emsdk && . /emsdk/emsdk_env.sh && cd /raylib && cmake --build build --target install
 
-ENV PATH="$PATH:/emsdk"
-ENV EMSDK /emsdk
-ENV EMSDK_NODE ${EMSDK}/node/15.14.0_64bit/bin/node
+SHELL [ "/bin/bash", "-c", "source /emsdk/emsdk_env.sh", "&&" ]
