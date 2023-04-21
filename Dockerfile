@@ -24,4 +24,6 @@ RUN mkdir build
 RUN cd /emsdk && . /emsdk/emsdk_env.sh && cd /raylib && emcmake cmake -S . -B build "-DPLATFORM=Web"
 RUN cd /emsdk && . /emsdk/emsdk_env.sh && cd /raylib && cmake --build build --target install
 
-SHELL [ "/bin/bash", "-c", "source /emsdk/emsdk_env.sh", "&&" ]
+COPY entry.sh /entry.sh
+
+SHELL ["/entry.sh", "/bin/bash", "-c"]
