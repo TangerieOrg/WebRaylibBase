@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM docker.tangerie.xyz/docker-emsdk:latest
+FROM --platform=$BUILDPLATFORM ghcr.io/tangerieorg/docker-emsdk:latest
 
 WORKDIR /raylib
 RUN git clone https://github.com/raysan5/raylib.git .

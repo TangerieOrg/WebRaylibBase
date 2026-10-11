@@ -1,3 +1,3 @@
-FROM docker.tangerie.xyz/webraylib:latest
+FROM ghcr.io/tangerieorg/webraylib:latest
 
 RUN emcc -v

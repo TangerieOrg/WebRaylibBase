@@ -1,0 +1,22 @@
+name: Build & Push to GHCR
+
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+    inputs:
+      seed:
+        description: "Seed from the old registry image instead of building"
+        type: boolean
+        default: false
+
+jobs:
+  build:
+    permissions:
+      contents: read
+      packages: write
+    uses: TangerieOrg/Workflows/.github/workflows/ghcr-build-push.yml@main
+    with:
+      image_name: webraylib
+      seed_from: ${{ inputs.seed && '127.0.0.1:5000/webraylib:latest' || '' }}
+    secrets: inherit
